@@ -1,7 +1,12 @@
 var http = require("http"),
 	fs = require("fs"),
 	parser = require("./parser_vars"),
+	p = parser.parse_vars;
 	servidor = http.createServer();
+
+	var parametros = [],
+		valores = [],
+		arreglo_parametros = [];
 
 const mime = {
    'html' : 'text/html',
@@ -28,12 +33,36 @@ servidor.on('request',function(req,res){
 		if (!err) {
 			var html_string = contenido.toString();
 			if(metodo=="POST" && ruta=="/respuesta.html"){
-				html_string = html_string.replace("{nombre}","Hola Mundo");
-				console.log(body);
+
+			//Obteniendo variables y datos
+			if(body.indexOf('&') > 0){
+				var body_datos = body.split('&');
+				arreglo_parametros = body_datos;
+				console.log(arreglo_parametros);
 			}
+					
+			for (var i=0; i<arreglo_parametros.length; i++){
+				var parametro = arreglo_parametros[i];
+				var param_data = parametro.split('=');
+				parametros[i] = param_data[0];
+				valores[i] = param_data[1];
+				
+			}
+				console.log(body);
+				//console.log(parametros);
+				//console.log(valores);
+
+			for(var i = 0; i<parametros.length; i++){
+				html_string = html_string.replace('{'+parametros[i]+'}', valores[i]);
+			}
+				
+			}
+			
 			var vec = ruta.split('.');
-	        var tipo = vec[vec.length-1];
-	        res.writeHead(200, {'Content-Type': tipo});
+			var tipo = vec[vec.length-1];
+			tipomime = mime[tipo];
+			console.log(tipomime);
+	        res.writeHead(200, {'Content-Type': tipomime});
 			res.write(html_string);
 			res.end();
 		}
