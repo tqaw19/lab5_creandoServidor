@@ -11,6 +11,7 @@ var http = require("http"),
 const mime = {
    'html' : 'text/html',
    'css'  : 'text/css',
+   'js'   : 'text/js',
    'jpg'  : 'image/jpg',
    'ico'  : 'image/x-icon',
    'mp3'  :	'audio/mpeg3',
@@ -31,7 +32,7 @@ servidor.on('request',function(req,res){
 	});
 	fs.readFile("."+ruta,function(err,contenido){
 		if (!err) {
-			var html_string = contenido.toString();
+			contenido = contenido.toString();
 			if(metodo=="POST" && ruta=="/respuesta.html"){
 
 			//Obteniendo variables y datos
@@ -53,7 +54,7 @@ servidor.on('request',function(req,res){
 				//console.log(valores);
 
 			for(var i = 0; i<parametros.length; i++){
-				html_string = html_string.replace('{'+parametros[i]+'}', valores[i]);
+				contenido = contenido.replace('{'+parametros[i]+'}', valores[i]);
 			}
 				
 			}
@@ -63,7 +64,7 @@ servidor.on('request',function(req,res){
 			tipomime = mime[tipo];
 			console.log(tipomime);
 	        res.writeHead(200, {'Content-Type': tipomime});
-			res.write(html_string);
+			res.write(contenido);
 			res.end();
 		}
 	});
