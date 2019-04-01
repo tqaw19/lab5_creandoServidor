@@ -13,6 +13,7 @@ const mime = {
    'css'  : 'text/css',
    'js'   : 'text/js',
    'jpg'  : 'image/jpg',
+   'png'  : 'image/png',
    'ico'  : 'image/x-icon',
    'mp3'  :	'audio/mpeg3',
    'mp4'  : 'video/mp4'
@@ -49,8 +50,6 @@ servidor.on('request',function(req,res){
 				
 			}
 				console.log(body);
-				//console.log(parametros);
-				//console.log(valores);
 
 			for(var i = 0; i<parametros.length; i++){
 				contenido = contenido.replace('{'+parametros[i]+'}', valores[i]);
