@@ -31,10 +31,9 @@ servidor.on('request',function(req,res){
 		body = Buffer.concat(body).toString();
 	});
 	fs.readFile("."+ruta,function(err,contenido){
-		if (!err) {
-			contenido = contenido.toString();
+		if (!err) {			
 			if(metodo=="POST" && ruta=="/respuesta.html"){
-
+				contenido = contenido.toString();
 			//Obteniendo variables y datos
 			if(body.indexOf('&') > 0){
 				var body_datos = body.split('&');
