@@ -1,7 +1,8 @@
 header.masthead {
   text-align: center;
   color: white;
-  background-image: url('/img/header-bg.jpg');
+  /* background-image: url('/img/header-bg.jpg'); */
+  background-image: linear-gradient(to left bottom, #2f258c, #4d439d, #6861ae, #8480be, #a19fcd, #a2aed9, #a4bde4, #a9cbed, #85cfee, #5fd2e2, #4dd4c8, #5fd2a4);
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -53,7 +54,7 @@ header.masthead .intro-text .intro-heading {
 body{
   text-align: inherit;
   color: white;
-  background-image: url('/img/header-bg.jpg');
+  background-image: linear-gradient(to left bottom, #2f258c, #4d439d, #6861ae, #8480be, #a19fcd, #a2aed9, #a4bde4, #a9cbed, #85cfee, #5fd2e2, #4dd4c8, #5fd2a4);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-position: center center;
@@ -64,11 +65,11 @@ textarea{
   resize: none;
 }
 
-label, input{
+label, input, span{
   color: black;  
 }
 
-form{
+form, .resultado{
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
