@@ -60,3 +60,16 @@ body{
   background-size: cover;
 }
 
+textarea{
+  resize: none;
+}
+
+label, input{
+  color: black;  
+}
+
+form{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
