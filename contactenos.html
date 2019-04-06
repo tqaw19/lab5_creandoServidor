@@ -48,24 +48,24 @@
 							<form class="col-xs-12 col-sm-12" method="post" action="/respuesta.html">
 								<div class="form-group">
 									<label>Nombres</label>
-									<input type="text" class="form-control" id="exampleInputEmail1" name="nombres" aria-describedby="emailHelp" placeholder="Ingrese sus nombres">
+									<input type="text" class="form-control" id="exampleInputEmail1" name="nombres" aria-describedby="emailHelp" placeholder="Ingrese sus nombres" required>
 								</div>
 								<div class="form-group">
 									<label for="exampleInputEmail1">Correo</label>
-									<input type="email" class="form-control" id="exampleInputPassword1" name="correo" placeholder="Ingresa tu correo electrónico">
+									<input type="email" class="form-control" id="exampleInputPassword1" name="correo" placeholder="Ingresa tu correo electrónico" required>
 									<small id="emailHelp" class="form-text text-muted">Tu correo no será compartido con nadie más.</small>
 								</div>
 								<div class="form-group">
 									<label>Telefono</label>
-									<input type="number" class="form-control" id="exampleInputEmail1" name="telefono" aria-describedby="emailHelp" placeholder="Ingresa tu número de teĺefono">
+									<input type="number" onkeypress="if(this.value.length==9) return false;" class="form-control" id="exampleInputEmail1" name="telefono" aria-describedby="emailHelp" placeholder="Ingresa tu número de teĺefono" required>
 								</div>
 								<div class="form-group">
 									<label>Fecha de Nacimiento</label>
-									<input type="date" class="form-control" id="exampleInputEmail1" name="fechaNac" aria-describedby="emailHelp">
+									<input type="date" class="form-control" id="exampleInputEmail1" name="fechaNac" aria-describedby="emailHelp" required>
 								</div>
 								<div class="form-group">
 									<label>Mensaje</label>
-									<textarea maxlength="200" class="form-control" id="exampleFormControlTextarea1" name="mensaje" rows="3"></textarea>
+									<textarea maxlength="200" class="form-control" id="exampleFormControlTextarea1" name="mensaje" rows="3" required></textarea>
 								</div>
 								<input class="btn btn-primary" type="submit" value="Enviar">
 							</form>

@@ -15,8 +15,9 @@ const mime = {
    'jpg'  : 'image/jpg',
    'png'  : 'image/png',
    'ico'  : 'image/x-icon',
-   'mp3'  :	'audio/mpeg3',
-   'mp4'  : 'video/mp4'
+   'mp3'  : 'audio/mpeg3',
+   'mp4'  : 'video/mp4',
+   'gif'  : 'gif',
 };
 
 servidor.on('request',function(req,res){
@@ -25,6 +26,10 @@ servidor.on('request',function(req,res){
 	var ruta = req.url;
 	if(ruta=="/"){
 		ruta = "/index.html";
+	}else if(ruta=="/servicios.html"){
+		ruta = "/servicios.html";
+	}else if(ruta == "/nosotros.html"){
+		ruta = "/nosotros.html";	
 	}
 	req.on('data',function(chunk){
 		body.push(chunk);
@@ -49,6 +54,12 @@ servidor.on('request',function(req,res){
 				valores[i] = param_data[1];
 				
 			}
+			// var reemplazo = valores[1];
+			// 	if(reemplazo.indexOf('%4') > 0){
+			// 		var correo = reemplazo.split('%4');
+			// 		nuevo = correo;
+			// 	}
+			// 	console.log(nuevo);
 				console.log(body);
 
 			for(var i = 0; i<parametros.length; i++){
